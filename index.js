@@ -1,18 +1,24 @@
-// Problem-01 : Tax Calculator//
+// Problem 02 : Notification Generator//
 
-
-function calculateTax(income, expense) {
-  if (income < 0 || expense < 0 || income < expense) {
-    return "Invalid Input";
+function sendNotification(email) {
+  if (!email.includes('@')) {
+    return "Invalid Email";
   }
-  const difference = income - expense;
-  const tax = difference * .20;
-  return tax;
+
+  const email_name = email.split("@")
+  const nickName = email_name[0]
+  const domaineName = email_name[1]
+
+  const notification = nickName + " sent you an email from " + domaineName
+
+  return notification
+
 }
-const result = calculateTax(10000, 3000);
-console.log(result);
+console.log(sendNotification("nurmahammadmondol@gmail.com"));
+console.log(sendNotification("mdlitonmiagmail.com"));
 
 
 /**
  * 
  */
+
