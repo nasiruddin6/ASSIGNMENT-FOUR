@@ -1,24 +1,20 @@
-// Problem 02 : Notification Generator//
+// Problem-03: Checking Digits Inside a Name//
 
-function sendNotification(email) {
-  if (!email.includes('@')) {
-    return "Invalid Email";
+function checkDigitsInName(name) {
+  if (typeof name !== 'string') {
+    return "Invalid Input";
   }
-
-  const email_name = email.split("@")
-  const nickName = email_name[0]
-  const domaineName = email_name[1]
-
-  const notification = nickName + " sent you an email from " + domaineName
-
-  return notification
-
+  let digits = false;
+  for (let i = 0; i < name.length; i++) {
+    if (!isNaN(name[i]) && name[i] !== ' ') {
+      digits = true;
+      break;
+    }
+  }
+  return digits;
 }
-console.log(sendNotification("nurmahammadmondol@gmail.com"));
-console.log(sendNotification("mdlitonmiagmail.com"));
-
+console.log(checkDigitsInName(898));
 
 /**
  * 
  */
-
