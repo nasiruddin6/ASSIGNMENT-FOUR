@@ -1,19 +1,29 @@
-// Problem-03: Checking Digits Inside a Name//
+// Problem 04 : Calculate Admission Final Score// 
 
-function checkDigitsInName(name) {
-  if (typeof name !== 'string') {
-    return "Invalid Input";
+function calculateFinalScore(obj) {
+  if (typeof obj !== 'object') {
+    return 'Invalid Input';
   }
-  let digits = false;
-  for (let i = 0; i < name.length; i++) {
-    if (!isNaN(name[i]) && name[i] !== ' ') {
-      digits = true;
-      break;
-    }
+
+  const testScore = obj.testScore;
+  const schoolGrade = obj.schoolGrade;
+  if (obj.isFFamily === true) {
+    isFFamily = 20;
+  } else {
+    isFFamily = 0;
   }
-  return digits;
+  const totalMarks = testScore + schoolGrade + isFFamily;
+  if (totalMarks >= 80) {
+    return true;
+  } else {
+    return false;
+  }
 }
-console.log(checkDigitsInName(898));
+
+const info = { name: 'Rajib', testScore: 15, schoolGrade: 25, isFFamily: true };
+const results = calculateFinalScore(info);
+console.log(results);
+
 
 /**
  * 
